@@ -2207,20 +2207,20 @@ class PlayState extends MusicBeatState
 	{
 		if (!boyfriend.stunned)
 		{
-			health -= 0.04;
+			health -= 0.00;
 			if (combo > 5 && gf.animOffsets.exists('sad'))
 			{
 				gf.playAnim('sad');
 			}
 			combo = 0;
 
-			songScore -= 10;
+			songScore -= 0;
 
 			FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
 			// FlxG.sound.play(Paths.sound('missnote1'), 1, false);
 			// FlxG.log.add('played imss note');
 
-			boyfriend.stunned = true;
+			boyfriend.stunned = false;
 
 			// get stunned for 5 seconds
 			new FlxTimer().start(5 / 60, function(tmr:FlxTimer)
@@ -2231,13 +2231,13 @@ class PlayState extends MusicBeatState
 			switch (direction)
 			{
 				case 0:
-					boyfriend.playAnim('singLEFTmiss', true);
+					boyfriend.playAnim('singLEFTmiss', false);
 				case 1:
-					boyfriend.playAnim('singDOWNmiss', true);
+					boyfriend.playAnim('singDOWNmiss', false);
 				case 2:
-					boyfriend.playAnim('singUPmiss', true);
+					boyfriend.playAnim('singUPmiss', false);
 				case 3:
-					boyfriend.playAnim('singRIGHTmiss', true);
+					boyfriend.playAnim('singRIGHTmiss', false);
 			}
 		}
 	}
